@@ -6,3 +6,70 @@ Initially forked from [here](https://github.com/binder-examples/conda). Thank yo
 
 Part of the [Bioinformatics Virtual Coordination Network](https://biovcnet.github.io/) :)
 
+
+## Walkthrough
+
+Enter the MagicCave
+
+    cd MagicCave/
+
+print the MagicLamp help menu
+
+    MagicLamp.py help
+
+print WspGenie help menu
+
+    MagicLamp.py WspGenie -h
+
+run WspGenie on test dataset
+
+    MagicLamp.py WspGenie -bin_dir test_dataset/ -bin_ext fna -out wspgenie_out
+
+
+go into the wspgenie output directory and check out the output file
+
+    cd wspgenie_out/
+    less -S wspgenie-summary.csv
+
+check out the gene predictions
+
+    cd ORF_calls/
+    cd ../../
+
+mv ORF calls to the main directory
+
+    mv wspgenie_out/ORF_calls/ ./
+
+print LithoGenie help menu
+
+    MagicLamp.py LithoGenie -h
+
+run LithoGenie on ORF calls
+
+    MagicLamp.py LithoGenie -bin_dir ORF_calls/ -bin_ext faa --orfs -out lithogenie_out
+
+check out the output
+
+    cd lithogenie_out/
+    less -S lithogenie-summary.csv
+    less lithogenie.ALL.heatmap.csv
+    cd ../
+
+re-run LithoGenie to create a .heatmap.csv for an element-of-interest
+
+    MagicLamp.py LithoGenie -bin_dir ORF_calls/ -bin_ext faa --orfs -out lithogenie_out --skip -cat sulfur
+    # answer 'y' to the question
+    MagicLamp.py LithoGenie -bin_dir ORF_calls/ -bin_ext faa --orfs -out lithogenie_out --skip -cat iron
+
+check out the new results
+
+    cd lithogenie_out/
+    less lithogenie.sulfur.heatmap.csv
+    less lithogenie.iron.heatmap.csv
+
+
+
+
+
+
+
