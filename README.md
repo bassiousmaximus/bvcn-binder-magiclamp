@@ -67,6 +67,26 @@ check out the new results
     less lithogenie.sulfur.heatmap.csv
     less lithogenie.iron.heatmap.csv
 
+print the HmmGenie help menu
+
+    MagicLamp.py HmmGenie -h
+
+run HmmGenie with a set of HMMs for gas vesicle formation
+
+    MagicLamp.py HmmGenie -hmm_dir MagicCave/hmms/gas/ -hmm_ext hmm -bin_dir test_dataset/ -bin_ext fna -out gas_out
+
+check out the results and re-run HmmGenie with more stringent parameters
+
+    MagicLamp.py HmmGenie -hmm_dir MagicCave/hmms/gas/ -hmm_ext hmm -bin_dir test_dataset/ -bin_ext fna -out gas_out -clu 5
+
+check out the results
+
+    cd gas_out/
+    less -S genie-summary.csv
+
+
+
+
 
 
 
